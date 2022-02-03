@@ -3,7 +3,6 @@
   flex-direction: column;
   padding: 16px;
   width: 100%;
-
 }
 
 video {
@@ -11,11 +10,6 @@ video {
   max-height: 100%;
   max-width: 100%;
   min-width: 50%;
-
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
 }
 
 .video-container {
@@ -23,7 +17,7 @@ video {
   width: 100%;
 
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 120px;
+  grid-template-rows: 90px;
   grid-auto-rows: auto;
 
   grid-template-areas: 
@@ -34,21 +28,17 @@ video {
 
 .video-container__video-header {
   grid-area: header;
-  background-color: blue
 }
 
 .video-container__video-area {
   grid-area: video;
-  border: red solid 2px
 }
 
 .video-container__video-footer {
   grid-area: footer;
-  background-color: green
 }
 
 .video-container__video-side {
   grid-area: side;
-  background-color: yellow
 }
 
