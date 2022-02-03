@@ -1,5 +1,9 @@
 .App {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
+  color: white;
+  background-color: rgb(30, 25, 44);
 }
 
 .App-logo {
