@@ -40,7 +40,7 @@ const INITIAL_STATE = {
         },
         { 
           id: 6, title: 'Hook useParams', 
-          description: `Permite extrar parâmetros da url` 
+          description: `Permite extrair parâmetros da url.` 
         },
         { 
           id: 7, title: 'Roteamento',
