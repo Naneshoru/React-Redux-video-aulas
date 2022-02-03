@@ -24,6 +24,8 @@ video {
   "header header header header"
   "video video video side"
   "footer footer footer footer";
+
+  row-gap: 8px;
 }
 
 .video-container__video-header {
@@ -32,10 +34,14 @@ video {
 
 .video-container__video-area {
   grid-area: video;
+  text-align: left;
+  padding: 8px;
 }
 
 .video-container__video-footer {
   grid-area: footer;
+  text-align: left;
+  padding: 8px;
 }
 
 .video-container__video-side {

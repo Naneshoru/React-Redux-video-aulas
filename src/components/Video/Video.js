@@ -24,7 +24,7 @@ const Video = ({ activeModule, activeLesson }) => {
         </video>
       </div>
       <div className='video-container__video-side'></div>
-      <div className='video-container__video-footer '></div>
+      <div className='video-container__video-footer '>{activeLesson.description}</div>
     </div>
   );
 }
