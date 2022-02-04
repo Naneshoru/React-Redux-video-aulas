@@ -1,5 +1,6 @@
 .sidebar-container {
   display: flex;
+  background-color: rgb(13, 18, 40);
 }
 
 .sidebar__line {
@@ -8,6 +9,6 @@
 .sidebar__line-item {
   background: rgb(228, 16, 93);
   margin: 4px;
-  border-radius: 4px;
   padding: 2px 4px;
+  border-radius: 4px;
 }
