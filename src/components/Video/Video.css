@@ -16,6 +16,11 @@
 
 .video-container__video-header {
   grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #14111d;
+  font-size: 1.5rem;
 }
 
 .video-container__video-area {
@@ -27,7 +32,9 @@
 .video-container__video-footer {
   grid-area: footer;
   text-align: left;
-  padding: 8px;
+  padding: 12px;
+  background-color: #14111d;
+  border-radius: 0.4rem;
 }
 
 .video-container__video-side {
