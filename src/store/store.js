@@ -59,20 +59,30 @@ const INITIAL_STATE = {
       id: 2, title: 'Aprendendo Redux',
       lessons: [
         { 
+          id: 9, title: 'Conceitos',
+          description: `"Única fonte da verdade." O estado da aplicação é global e concentrado em um único lugar, o store.
+          Desfazer/Refazer se torna trivial. ]
+          "State é somente leitura." A única forma de mudar o estado é emitindo uma ação. Um objeto descreve o tipo da ação,
+          ou seja, o que aconteceu, junto com um NOVO estado.
+          "Mudanças são feitas com funções puras." Não mudam o estado da aplicação.`
+        },
+        { 
           id: 9, title: 'Connect',
-          description: `` 
+          description: `Conecta um componente a um store.` 
         },
         { 
           id: 10, title: 'createStore',
-          description: `` 
+          description: `Cria uma árvore única de estados da aplicação. Se mais de um estado precisa ser gerenciado,
+          é possível combiná-los.` 
         },
         { 
           id: 11, title: 'Reducer',
-          description: `` 
+          description: `Reducer é uma função de redução que retorna o próximo estado, a partir de um estado inicial e uma ação.` 
         },
         { 
           id: 12, title: 'Provider',
-          description: `` 
+          description: `Um provider permite que componentes consumidores assinarem mudanças no contexto.
+          Podem ser aninhados para substituir valores mais ao fundo da árvore.`
         }
       ]
     },
