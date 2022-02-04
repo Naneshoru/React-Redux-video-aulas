@@ -1,4 +1,5 @@
 import React from 'react';
+import YouTubePlayer from 'react-player/youtube';
 
 import { connect } from 'react-redux';
 
@@ -16,12 +17,14 @@ const Video = ({ activeModule, activeLesson }) => {
       </div>
 
       <div className='video-container__video-area'>
-        <video
+        <YouTubePlayer
+          url={activeLesson.source}
           controls
-          autoplay
-          preload='metadata'
-        >
-        </video>
+          playing
+          height={'100%'}
+          width={'100%'}
+          className='video'
+        />
       </div>
       <div className='video-container__video-side'></div>
       <div className='video-container__video-footer '>{activeLesson.description}</div>
