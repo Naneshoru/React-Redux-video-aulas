@@ -21,12 +21,13 @@
   align-items: center;
   background-color: #14111d;
   font-size: 1.5rem;
+  margin: 4px;
 }
 
 .video-container__video-area {
   grid-area: video;
   text-align: left;
-  padding: 8px;
+  margin: 4px;
 }
 
 .video-container__video-footer {
@@ -35,6 +36,7 @@
   padding: 12px;
   background-color: #14111d;
   border-radius: 0.4rem;
+  margin: 4px;
 }
 
 .video-container__video-side {
