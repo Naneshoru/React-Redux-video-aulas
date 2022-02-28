@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './Sidebar.css';
-import CircleIcon from '@mui/icons-material/Circle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -14,10 +13,9 @@ const Sidebar = ({ modules, dispatch }) => {
       lesson
     }
   }
-
-  let statusMatrix = []; // [m][l] = (m) modules X (l) lessons
-
+  
   useEffect(() => {
+    let statusMatrix = []; // [m][l] = (m) modules X (l) lessons
     const createLessonsStatusMatrix = () => {
       modules.forEach((module, m) => {
         statusMatrix[m] = [];
@@ -25,12 +23,14 @@ const Sidebar = ({ modules, dispatch }) => {
           statusMatrix[m][l] = '';
         })
       })
-    }
-    createLessonsStatusMatrix();
-    console.log(statusMatrix)
-  }, [])
 
-  const [lessonsStatus, setLessonsStatus] = useState(statusMatrix);
+      setLessonsStatus(statusMatrix);
+    }
+
+    createLessonsStatusMatrix();
+  }, [modules])
+
+  const [lessonsStatus, setLessonsStatus] = useState([]);
 
   const updateMatrix = (value, m, l) => {
     let newMatrix = lessonsStatus.map((arr) => arr.slice()); // cópia da matrix
@@ -54,8 +54,8 @@ const Sidebar = ({ modules, dispatch }) => {
                   }}
                   className='sidebar__line-item'
                 >
-                  {lessonsStatus[m] && lessonsStatus[m][l] === 'visualized' && <div><VisibilityIcon /></div>}
-                  {lessonsStatus[m] && lessonsStatus[m][l] === 'watched' && <div><CheckCircleIcon /></div>}
+                  {lessonsStatus[m] && lessonsStatus[m][l] === 'visualized' && <div className='icon'><VisibilityIcon /></div>}
+                  {lessonsStatus[m] && lessonsStatus[m][l] === 'watched' && <div className='icon'><CheckCircleIcon /></div>}
                   <div><span>{lesson.title}</span></div>
                 </li>
               ))}
@@ -63,7 +63,6 @@ const Sidebar = ({ modules, dispatch }) => {
           </div>
         ))}
       </aside>
-
     </div>
   );
 }
