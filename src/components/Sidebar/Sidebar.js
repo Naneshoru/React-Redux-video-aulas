@@ -15,47 +15,47 @@ const Sidebar = ({ modules, dispatch }) => {
     }
   }
 
-  let lessonsSize = 0;
+  let statusMatrix = []; // [m][l] = (m) modules X (l) lessons
 
   useEffect(() => {
-    const getLessonsSize = () => {
-      modules.forEach((module) => {
-        module.lessons.forEach((lesson) => {
-          lessonsSize++;
+    const createLessonsStatusMatrix = () => {
+      modules.forEach((module, m) => {
+        statusMatrix[m] = [];
+        module.lessons.forEach((lesson, l) => {
+          statusMatrix[m][l] = '';
         })
       })
     }
-    getLessonsSize();
-  }, [modules, lessonsSize])
+    createLessonsStatusMatrix();
+    console.log(statusMatrix)
+  }, [])
 
-  const [lessonsStatus, setLessonsStatus] = useState(Array(lessonsSize).fill(''));
+  const [lessonsStatus, setLessonsStatus] = useState(statusMatrix);
 
-  const updateCheckedArray = (value, index) => {
-    let newArray = [...lessonsStatus];
-    newArray[index] = value;
-    setLessonsStatus(newArray);
+  const updateMatrix = (value, m, l) => {
+    let newMatrix = lessonsStatus.map((arr) => arr.slice()); // cópia da matrix
+    newMatrix[m][l] = value;
+    setLessonsStatus(newMatrix);
   }
-
 
   return ( 
     <div className='sidebar-container'>
       <aside>
-        { modules.map((module) => (
+        { modules.map((module, m) => (
           <div key={module.id}>
             <p><strong>{module.title}</strong></p>
             <ul className='sidebar__line'>
-              { module.lessons.map((lesson, i) => (
+              { module.lessons.map((lesson, l) => (
                 <li 
                   key={lesson.id} 
                   onClick={() => { 
                     dispatch(toggleLesson(module, lesson)); 
-                    updateCheckedArray('visualized', i)
+                    updateMatrix('visualized', m, l)
                   }}
                   className='sidebar__line-item'
                 >
-                  {!lessonsStatus[i] && <div><CircleIcon /></div>}
-                  {lessonsStatus[i] === 'visualized' && <div><VisibilityIcon /></div>}
-                  {lessonsStatus[i] === 'watched' && <div><CheckCircleIcon /></div>}
+                  {lessonsStatus[m] && lessonsStatus[m][l] === 'visualized' && <div><VisibilityIcon /></div>}
+                  {lessonsStatus[m] && lessonsStatus[m][l] === 'watched' && <div><CheckCircleIcon /></div>}
                   <div><span>{lesson.title}</span></div>
                 </li>
               ))}
