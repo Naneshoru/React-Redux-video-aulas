@@ -1,15 +1,20 @@
 .sidebar-container {
   display: flex;
   background-color: #14111d;
+
+  width: 250px;
 }
 
 .sidebar__line {
 }
 
 .sidebar__line-item {
-  background: rgb(228, 16, 93);
+  display: flex;
+  cursor: pointer;
+  
   margin: 4px;
   padding: 2px 4px;
   border-radius: 4px;
-  cursor: pointer;
+  background: #e41057; 
+  overflow: hidden;
 }
