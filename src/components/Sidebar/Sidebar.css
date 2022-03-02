@@ -9,22 +9,29 @@
   flex-direction: column;
 }
 
+.sidebar__line-item:hover {
+  background-color: #b40d45;
+}
+
 .sidebar__line-item {
   display: flex;
   justify-content: center;
   cursor: pointer;
   
   margin: 2px 8px;
-  padding: 4px;
+  padding: 6px;
   border-radius: 4px;
   background: #e41057; 
   color: white;
   overflow: hidden;
   border: none;
-
-  font-size: medium;
+  font-size: 1.1em;
 }
 
 .icon {
   padding: 0 8px;
+}
+
+.title {
+  font-size: 1.1em;
 }

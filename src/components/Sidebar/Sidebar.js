@@ -21,7 +21,7 @@ const Sidebar = ({ modules, dispatch }) => {
       <aside>
         { modules.map((module, m) => (
           <div key={module.id}>
-            <p><strong>{module.title}</strong></p>
+            <p className='title'><strong>{module.title}</strong></p>
             <div className='sidebar__line'>
               { module.lessons.map((lesson, l) => (
                 <button 
