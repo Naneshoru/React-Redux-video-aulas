@@ -22,9 +22,9 @@ const Sidebar = ({ modules, dispatch }) => {
         { modules.map((module, m) => (
           <div key={module.id}>
             <p><strong>{module.title}</strong></p>
-            <ul className='sidebar__line'>
+            <div className='sidebar__line'>
               { module.lessons.map((lesson, l) => (
-                <li 
+                <button 
                   key={lesson.id} 
                   onClick={() => { 
                     dispatch(toggleLesson(module, lesson, m, l)); 
@@ -33,10 +33,10 @@ const Sidebar = ({ modules, dispatch }) => {
                 >
                   {lesson.status === 'visualized' && <div className='icon'><VisibilityIcon /></div>}
                   {lesson.status === 'watched' && <div className='icon'><CheckCircleIcon /></div>}
-                  <div><span>{lesson.title}</span></div>
-                </li>
+                  {lesson.title}
+                </button>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </aside>
