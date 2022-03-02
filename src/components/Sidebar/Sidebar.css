@@ -18,3 +18,7 @@
   background: #e41057; 
   overflow: hidden;
 }
+
+.icon {
+  padding: 0 8px;
+}
