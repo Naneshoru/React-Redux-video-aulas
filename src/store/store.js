@@ -105,44 +105,52 @@ function reducer(state = INITIAL_STATE, action) {
   let FINAL_STATE;
   switch (action.type) {
     case 'TOGGLE_LESSON':
+      action.lesson.status = 'visualized';
+
       FINAL_STATE = { 
         activeLesson: { ...action.lesson, lessonIndex: action.lessonIndex },
         activeModule: { ...action.module, moduleIndex: action.moduleIndex },
         modules: [ ...state.modules, ]
       }
 
-      FINAL_STATE.modules[action.moduleIndex].lessons[action.lessonIndex].status = 'visualized'
+      FINAL_STATE.modules[action.moduleIndex].lessons[action.lessonIndex].status = action.lesson.status;
+      console.log(FINAL_STATE)
       return FINAL_STATE;
     case 'VIDEO_ENDED':
-      console.log('video ' + action.activeLesson.title + ' ended')
+      
       FINAL_STATE = { 
         activeLesson: { ...action.activeLesson, },
         activeModule: { ...action.activeModule, },
         modules: [ ...state.modules, ]
       } 
 
-      const currentModule = state.modules[action.activeModule.moduleIndex];
+      // Atualizar o status da lesson anterior
+      FINAL_STATE.modules[action.activeModule.moduleIndex]
+        .lessons[action.activeLesson.lessonIndex]
+          .status = 'watched';
+  
       const nextLessonInModule = state.modules[action.activeModule.moduleIndex].lessons[action.activeLesson.lessonIndex + 1];
 
       const nextModule = state.modules[action.activeModule.moduleIndex + 1];
       const firstLessonInNextModule = state.modules[action.activeModule.moduleIndex + 1].lessons[0];
       
-      // Receber a proxima lesson
+      // Receber a proxima lesson do module, se existir
       if (nextLessonInModule) {
-        FINAL_STATE.activeModule = currentModule;
-        FINAL_STATE.activeLesson = nextLessonInModule;
-        nextLessonInModule.status = 'visualized'
+        nextLessonInModule.lessonIndex = state.activeLesson.lessonIndex + 1; // O evento não manda o indice: update do state
+
+        FINAL_STATE.activeLesson = nextLessonInModule; // Atualizar a lesson
+        nextLessonInModule.status = 'visualized' // Atualizar o status da lesson atual
+        console.log('nextLessonInModule', nextLessonInModule)
+
       } else {
+        firstLessonInNextModule.lessonIndex = 0; // O evento não manda o indice: update do state
+        nextModule.moduleIndex = state.activeModule.moduleIndex + 1; // O evento não manda o indice: update do state
+
+        FINAL_STATE.activeLesson = firstLessonInNextModule; // Atualizar a lesson
         FINAL_STATE.activeModule = nextModule; // Atualizar o module
-        FINAL_STATE.activeLesson = firstLessonInNextModule;
-        firstLessonInNextModule.status = 'visualized'
+        firstLessonInNextModule.status = 'visualized' // Atualizar o status da lesson atual
       }
 
-      // Atualizar o status 
-      FINAL_STATE.modules[action.activeModule.moduleIndex]
-        .lessons[action.activeLesson.lessonIndex]
-          .status = 'watched';
-      console.log(FINAL_STATE)
       return FINAL_STATE;
   
     default:
