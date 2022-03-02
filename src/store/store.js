@@ -105,6 +105,7 @@ function reducer(state = INITIAL_STATE, action) {
   let FINAL_STATE;
   switch (action.type) {
     case 'TOGGLE_LESSON':
+      action.lesson.status = 'visualized';
       FINAL_STATE = { 
         activeLesson: { ...action.lesson, lessonIndex: action.lessonIndex },
         activeModule: { ...action.module, moduleIndex: action.moduleIndex },
@@ -144,7 +145,6 @@ function reducer(state = INITIAL_STATE, action) {
         FINAL_STATE.activeModule = nextModule; // Atualizar o module
         firstLessonInNextModule.status = 'visualized' // Atualizar o status da lesson atual
       }
-
       return FINAL_STATE;
     default:
       return state;
