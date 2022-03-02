@@ -5,7 +5,15 @@ import { connect } from 'react-redux';
 
 import './Video.css'
 
-const Video = ({ activeModule, activeLesson }) => {
+const Video = ({ activeModule, activeLesson, dispatch }) => {
+  function videoEnded(activeModule, activeLesson) {
+    return {
+      type: 'VIDEO_ENDED',
+      activeLesson,
+      activeModule
+    }
+  }
+
   return ( 
     <div className='video-container'>
 
@@ -24,7 +32,8 @@ const Video = ({ activeModule, activeLesson }) => {
           height={'100%'}
           width={'100%'}
           className='video'
-        />
+          onEnded={() => dispatch(videoEnded(activeModule, activeLesson))}
+      />
       </div>
       <div className='video-container__video-side'></div>
       <div className='video-container__video-footer '>{activeLesson.description}</div>
