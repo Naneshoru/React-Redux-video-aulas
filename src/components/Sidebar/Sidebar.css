@@ -13,7 +13,13 @@
   background-color: #b40d45;
 }
 
+.sidebar__line-item.active {
+  border-left: solid 4px #ffffff;
+}
+
 .sidebar__line-item {
+  border-left: solid 4px #ffffff;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +29,7 @@
   margin: 2px 8px;
   padding: 6px 12px;
   border-radius: 4px;
-  background: #e41057; 
+  background: crimson;
   color: white;
   border: none;
   font-size: 1.1em;
@@ -38,6 +44,14 @@
 
 .icon {
   padding: 0 8px;
+}
+
+.visualized {
+  color: lightyellow;
+}
+
+.watched {
+  color: lightgreen;
 }
 
 .title {
