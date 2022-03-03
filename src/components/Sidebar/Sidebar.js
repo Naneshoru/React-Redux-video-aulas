@@ -4,11 +4,9 @@ import './Sidebar.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-const Sidebar = ({ modules, dispatch }) => {
-  const [selectedButton, setSelectedButton] = useState('');
+const Sidebar = ({ modules, activeLesson, dispatch }) => {
 
   function toggleLesson(module, lesson, moduleIndex, lessonIndex) {    
-    setSelectedButton(lesson.id);
     return {
       type: 'TOGGLE_LESSON',
       module,
@@ -19,7 +17,7 @@ const Sidebar = ({ modules, dispatch }) => {
   }
 
   const isActive = (id) => {
-    return id === selectedButton ? 'active' : ''
+    return id === activeLesson.id ? 'active' : ''
   } 
 
   return ( 
@@ -48,4 +46,7 @@ const Sidebar = ({ modules, dispatch }) => {
   );
 }
  
-export default connect(state => ({ modules: state.modules }))(Sidebar)
+export default connect(state => ({ 
+  modules: state.modules,
+  activeLesson: state.activeLesson
+}))(Sidebar)
