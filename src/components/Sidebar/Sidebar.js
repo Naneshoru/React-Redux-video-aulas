@@ -26,9 +26,7 @@ const Sidebar = ({ modules, dispatch }) => {
               { module.lessons.map((lesson, l) => (
                 <button 
                   key={lesson.id} 
-                  onClick={() => { 
-                    dispatch(toggleLesson(module, lesson, m, l)); 
-                  }}
+                  onClick={() => { dispatch(toggleLesson(module, lesson, m, l)) }}
                   className='sidebar__line-item'
                 >
                   {lesson.title}

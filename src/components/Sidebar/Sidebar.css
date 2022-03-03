@@ -27,6 +27,13 @@
   color: white;
   border: none;
   font-size: 1.1em;
+
+  transition: all 150ms ease;
+  transform: scale(1);
+}
+
+.sidebar__line-item:active {
+  transform: scale(1.1);
 }
 
 .icon {
