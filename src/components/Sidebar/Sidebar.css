@@ -15,15 +15,16 @@
 
 .sidebar__line-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+  text-align: initial;
   
   margin: 2px 8px;
-  padding: 6px;
+  padding: 6px 12px;
   border-radius: 4px;
   background: #e41057; 
   color: white;
-  overflow: hidden;
   border: none;
   font-size: 1.1em;
 }

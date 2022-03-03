@@ -31,9 +31,9 @@ const Sidebar = ({ modules, dispatch }) => {
                   }}
                   className='sidebar__line-item'
                 >
+                  {lesson.title}
                   {lesson.status === 'visualized' && <div className='icon'><VisibilityIcon /></div>}
                   {lesson.status === 'watched' && <div className='icon'><CheckCircleIcon /></div>}
-                  {lesson.title}
                 </button>
               ))}
             </div>
