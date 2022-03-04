@@ -105,7 +105,9 @@ function reducer(state = INITIAL_STATE, action) {
   let FINAL_STATE;
   switch (action.type) {
     case 'TOGGLE_LESSON':
-      action.lesson.status = 'visualized';
+      if (action.lesson.status !== 'watched') {
+        action.lesson.status = 'visualized';
+      }
       FINAL_STATE = { 
         activeLesson: { ...action.lesson, lessonIndex: action.lessonIndex },
         activeModule: { ...action.module, moduleIndex: action.moduleIndex },
