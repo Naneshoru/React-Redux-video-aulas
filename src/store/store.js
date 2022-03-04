@@ -127,9 +127,6 @@ function reducer(state = INITIAL_STATE, action) {
           .status = 'watched';
   
       const nextLessonInModule = state.modules[action.activeModule.moduleIndex].lessons[action.activeLesson.lessonIndex + 1];
-
-      const firstLessonInNextModule = state.modules[action.activeModule.moduleIndex + 1].lessons[0];
-      const nextModule = state.modules[action.activeModule.moduleIndex + 1];
       
       // Receber a proxima lesson do module, se existir
       if (nextLessonInModule) {
@@ -138,6 +135,13 @@ function reducer(state = INITIAL_STATE, action) {
         FINAL_STATE.activeLesson = nextLessonInModule; // Atualizar a lesson
         nextLessonInModule.status = 'visualized' // Atualizar o status da lesson atual
       } else {
+        if (state.modules.length === action.activeModule.moduleIndex + 1) { // ultimo video nao precisa passar para o proximo
+          return FINAL_STATE;
+        }
+
+        const nextModule = state.modules[action.activeModule.moduleIndex + 1];
+        const firstLessonInNextModule = state.modules[action.activeModule.moduleIndex + 1].lessons[0];
+
         firstLessonInNextModule.lessonIndex = 0; // O evento não manda o indice: update do state
         nextModule.moduleIndex = state.activeModule.moduleIndex + 1; // O evento não manda o indice: update do state
 
