@@ -71,30 +71,30 @@ const INITIAL_STATE = {
           "State é somente leitura." A única forma de mudar o estado é emitindo uma ação. Um objeto descreve o tipo da ação,
           ou seja, o que aconteceu, junto com um NOVO estado.
           "Mudanças são feitas com funções puras." Não mudam o estado da aplicação.`,
-          source: 'https://youtu.be/u99tNt3TZf8?t=134', status: ''
+          source: 'https://youtu.be/u99tNt3TZf8?&start=134&end=900', status: ''
         },
       
         { 
           id: 10, title: 'createStore',
           description: `Cria uma árvore única de estados da aplicação. Se mais de um estado precisa ser gerenciado,
           é possível combiná-los.`,
-          source: 'https://youtu.be/u99tNt3TZf8?t=1524', status: ''
+          source: 'https://youtu.be/u99tNt3TZf8?&start=1524&end=1553', status: ''
         },
         { 
           id: 11, title: 'Reducer',
           description: `Reducer é uma função de redução que retorna o próximo estado, a partir de um estado inicial e uma ação.`,
-          source: 'https://youtu.be/u99tNt3TZf8?t=1554', status: ''
+          source: 'https://youtu.be/u99tNt3TZf8?&start=1554&end=1619', status: ''
         },
         { 
           id: 12, title: 'Provider',
           description: `Um provider permite que componentes consumidores assinarem mudanças no contexto.
           Podem ser aninhados para substituir valores mais ao fundo da árvore.`,
-          source: 'https://youtu.be/u99tNt3TZf8?t=1620', status: ''
+          source: 'https://youtu.be/u99tNt3TZf8?&start=1620&end=1711', status: ''
         },
         { 
           id: 13, title: 'Connect',
           description: `Conecta um componente a um store.`,
-          source: 'https://youtu.be/u99tNt3TZf8?t=1712', status: ''
+          source: 'https://youtu.be/u99tNt3TZf8?start=1712', status: ''
         },
       ]
     },
@@ -144,7 +144,7 @@ function reducer(state = INITIAL_STATE, action) {
         const nextModule = state.modules[action.activeModule.moduleIndex + 1];
         const firstLessonInNextModule = state.modules[action.activeModule.moduleIndex + 1].lessons[0];
 
-        firstLessonInNextModule.lessonIndex = 0; // O evento não manda o indice: update do state
+        firstLessonInNextModule.lessonIndex = 0;
         nextModule.moduleIndex = state.activeModule.moduleIndex + 1; // O evento não manda o indice: update do state
 
         FINAL_STATE.activeLesson = firstLessonInNextModule; // Atualizar a lesson
