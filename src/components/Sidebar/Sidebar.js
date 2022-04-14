@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './Sidebar.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
