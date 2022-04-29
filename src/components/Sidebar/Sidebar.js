@@ -3,18 +3,9 @@ import { connect } from 'react-redux';
 import './Sidebar.css';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { toggleLesson } from '../../store/actions'
 
 const Sidebar = ({ modules, activeLesson, dispatch }) => {
-
-  function toggleLesson(module, lesson, moduleIndex, lessonIndex) {    
-    return {
-      type: 'TOGGLE_LESSON',
-      module,
-      lesson,
-      moduleIndex,
-      lessonIndex
-    }
-  }
 
   const isActive = (id) => {
     return id === activeLesson.id ? 'active' : ''

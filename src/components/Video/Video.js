@@ -5,15 +5,10 @@ import { connect } from 'react-redux';
 
 import './Video.css'
 
-const Video = ({ activeModule, activeLesson, dispatch }) => {
-  function videoEnded(activeModule, activeLesson) {
-    return {
-      type: 'VIDEO_ENDED',
-      activeLesson,
-      activeModule
-    }
-  }
+import { videoEnded } from '../../store/actions'
 
+const Video = ({ activeModule, activeLesson, dispatch }) => {
+  
   return ( 
     <div className='video-container'>
 
