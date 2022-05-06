@@ -1,7 +1,7 @@
 
-export function toggleLesson(module, lesson, moduleIndex, lessonIndex) {    
+export function selectLesson(module, lesson, moduleIndex, lessonIndex) {    
   return {
-    type: 'TOGGLE_LESSON',
+    type: 'SELECT_LESSON',
     module,
     lesson,
     moduleIndex,
@@ -14,5 +14,12 @@ export function videoEnded(activeModule, activeLesson) {
     type: 'VIDEO_ENDED',
     activeLesson,
     activeModule
+  }
+}
+
+export function toggleModule(moduleIndex) {
+  return {
+    type: 'TOGGLE_MODULE',
+    moduleIndex
   }
 }
