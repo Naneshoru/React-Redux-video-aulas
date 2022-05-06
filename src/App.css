@@ -20,14 +20,13 @@
   background-color: crimson;
 }
 
-.scrollbar::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: #222;
-}
-
 .scrollbar::-webkit-scrollbar {
   width: 4px;
   height: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 10px;
   background-color: #222;
 }
 
