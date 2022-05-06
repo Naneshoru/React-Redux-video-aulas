@@ -2,6 +2,7 @@
   display: flex;
   width: 250px;
   background-color: #14111d;
+  overflow-y: auto;
 }
 
 .sidebar__line {
@@ -32,7 +33,7 @@
   background: crimson;
   color: white;
   border: none;
-  font-size: 1.1em;
+  font-size: 1em;
 
   transition: all 150ms ease;
   transform: scale(1);
@@ -42,7 +43,7 @@
   transform: scale(1.1);
 }
 
-.icon {
+.lesson-icon {
   padding: 0 8px;
 }
 
@@ -55,5 +56,17 @@
 }
 
 .title {
-  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  border: solid 1px #222;
+}
+
+.title-text {
+  font-size: 1em;
+  margin: 8px auto;
+  margin-left: 14px;
+}
+
+.title-icon {
+  margin: 0 8px;
 }
