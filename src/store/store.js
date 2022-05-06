@@ -104,39 +104,6 @@ const INITIAL_STATE = {
           id: 14, title: 'axios',
           description: `Faz XMLHttpRequests do navegador suportando Promises, também pode interceptar ou cancelar as requests.`,
           source: 'https://www.youtube.com/watch?v=VM4e37DaskU', status: ''
-        },
-        { 
-          id: 13, title: 'react-icons', status: '',
-          description: `Após a instalação do react-icons, é possível procurar o ícone desejado em https://react-icons.github.io/react-icons/
-          e utilizá-lo como um componente React`,
-          source:'https://www.youtube.com/watch?v=aor9hlcODUE&ab_channel=EricMurphy'
-        },
-        {
-          id: 14, title: 'axios',
-          description: `Faz XMLHttpRequests do navegador suportando Promises, também pode interceptar ou cancelar as requests.`,
-          source: 'https://www.youtube.com/watch?v=VM4e37DaskU', status: ''
-        },
-        { 
-          id: 13, title: 'react-icons', status: '',
-          description: `Após a instalação do react-icons, é possível procurar o ícone desejado em https://react-icons.github.io/react-icons/
-          e utilizá-lo como um componente React`,
-          source:'https://www.youtube.com/watch?v=aor9hlcODUE&ab_channel=EricMurphy'
-        },
-        {
-          id: 14, title: 'axios',
-          description: `Faz XMLHttpRequests do navegador suportando Promises, também pode interceptar ou cancelar as requests.`,
-          source: 'https://www.youtube.com/watch?v=VM4e37DaskU', status: ''
-        },
-        { 
-          id: 13, title: 'react-icons', status: '',
-          description: `Após a instalação do react-icons, é possível procurar o ícone desejado em https://react-icons.github.io/react-icons/
-          e utilizá-lo como um componente React`,
-          source:'https://www.youtube.com/watch?v=aor9hlcODUE&ab_channel=EricMurphy'
-        },
-        {
-          id: 14, title: 'axios',
-          description: `Faz XMLHttpRequests do navegador suportando Promises, também pode interceptar ou cancelar as requests.`,
-          source: 'https://www.youtube.com/watch?v=VM4e37DaskU', status: ''
         }
       ]
     },

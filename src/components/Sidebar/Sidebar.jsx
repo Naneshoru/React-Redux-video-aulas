@@ -22,7 +22,7 @@ const Sidebar = ({ modules, activeLesson, dispatch }) => {
                 <ArrowDropDown  className='title-icon' />
               }
             </div>
-            <div className='sidebar__line'>
+            <div className={`sidebar__line ${module.isExpanded && 'fade-in'}`}>
               { module.isExpanded && module.lessons.map((lesson, l) => (
                 <button 
                   key={lesson.id} 

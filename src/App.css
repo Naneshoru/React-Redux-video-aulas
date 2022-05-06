@@ -1,3 +1,6 @@
+@import './styles/animations.css';
+@import './styles/scrollbar.css';
+
 .App {
   display: flex;
   justify-content: space-between;
@@ -18,19 +21,4 @@
 
 ::selection {
   background-color: crimson;
-}
-
-.scrollbar::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-
-.scrollbar::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: #222;
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #333;
 }
