@@ -28,12 +28,12 @@
   text-align: initial;
   
   margin: 2px 8px;
-  padding: 6px 12px;
+  padding: 8px;
   border-radius: 4px;
   background: crimson;
   color: white;
   border: none;
-  font-size: 1em;
+  font-size: 1.1em;
 
   transition: all 150ms ease;
   transform: scale(1);
@@ -59,6 +59,7 @@
   display: flex;
   align-items: center;
   border: solid 1px #222;
+  cursor: pointer;
 }
 
 .title-text {
@@ -68,5 +69,5 @@
 }
 
 .title-icon {
-  margin: 0 8px;
+  margin: 8px;
 }
