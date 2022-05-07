@@ -1,21 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './Sidebar.css';
 import { ArrowDropDown, ArrowDropUp, CheckCircle, Visibility }  from '@mui/icons-material/';
-import { selectLesson, toggleModule } from '../../store/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectLesson, toggleModule } from '../../store/media';
 
-const Sidebar = ({ modules, activeLesson, dispatch }) => {
+const Sidebar = () => {
 
   const isActive = (id) => {
     return id === activeLesson.id ? 'active' : ''
   } 
 
+  const { modules, activeLesson } = useSelector(state => state.media);
+  console.log(modules)
+
+  const dispatch  = useDispatch();
+
   return ( 
+    
     <div className='sidebar-container scrollbar'>
       <aside>
-        { modules.map((module, m) => (
+        { modules.map((module, moduleIndex) => (
           <div key={module.id}>
-            <div className='title' onClick={() => { dispatch(toggleModule(m)) }}>
+            <div className='title' onClick={() => { dispatch(toggleModule({ moduleIndex })) }}>
               <p className='title-text'><strong>{ module.title }</strong></p>
               { module.isExpanded ? 
                 <ArrowDropUp  className='title-icon' /> :
@@ -23,10 +29,10 @@ const Sidebar = ({ modules, activeLesson, dispatch }) => {
               }
             </div>
             <div className={`sidebar__line ${module.isExpanded && 'fade-in'}`}>
-              { module.isExpanded && module.lessons.map((lesson, l) => (
+              { module.isExpanded && module.lessons.map((lesson, lessonIndex) => (
                 <button 
                   key={lesson.id} 
-                  onClick={() => { dispatch(selectLesson(module, lesson, m, l)) }}
+                  onClick={() => { dispatch(selectLesson({ module, lesson, moduleIndex, lessonIndex })) }}
                   className={'sidebar__line-item ' + isActive(lesson.id)}
                 >
                   {lesson.title}
@@ -41,8 +47,5 @@ const Sidebar = ({ modules, activeLesson, dispatch }) => {
     </div>
   );
 }
- 
-export default connect(state => ({ 
-  modules: state.modules,
-  activeLesson: state.activeLesson
-}))(Sidebar)
+
+export default Sidebar;

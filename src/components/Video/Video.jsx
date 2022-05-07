@@ -1,13 +1,16 @@
 import React from 'react';
 import YouTubePlayer from 'react-player/youtube';
 
-import { connect } from 'react-redux';
-
 import './Video.css'
 
-import { videoEnded } from '../../store/actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { videoEnded } from '../../store/media';
 
-const Video = ({ activeModule, activeLesson, dispatch }) => {
+const Video = () => {
+  
+  const dispatch  = useDispatch();
+
+  const { activeModule, activeLesson } = useSelector(state => state.media);
   
   return ( 
     <div className='video-container'>
@@ -27,7 +30,7 @@ const Video = ({ activeModule, activeLesson, dispatch }) => {
           height={'100%'}
           width={'100%'}
           className='video'
-          onEnded={() => dispatch(videoEnded(activeModule, activeLesson))}
+          onEnded={() => dispatch(videoEnded({ activeModule, activeLesson }))}
       />
       </div>
       <div className='video-container__video-side'></div>
@@ -36,8 +39,5 @@ const Video = ({ activeModule, activeLesson, dispatch }) => {
   );
 }
  
-export default connect(state => ({ 
-  activeModule: state.activeModule,
-  activeLesson: state.activeLesson
-}))(Video);
+export default Video;
 
