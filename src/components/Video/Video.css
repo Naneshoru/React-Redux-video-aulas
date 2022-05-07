@@ -1,6 +1,5 @@
 .video-container {
   display: grid;
-  width: 100%;
 
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 90px 1fr 120px;
@@ -12,9 +11,10 @@
 
   row-gap: 8px;
   padding: 8px;
+  width: 100%;
 }
 
-.video-container__video-header {
+.video-container__header {
   grid-area: header;
   display: flex;
   justify-content: center;
@@ -24,13 +24,13 @@
   margin: 4px;
 }
 
-.video-container__video-area {
+.video-container__video {
   grid-area: video;
   text-align: left;
   margin: 4px;
 }
 
-.video-container__video-footer {
+.video-container__footer {
   grid-area: footer;
   text-align: left;
   padding: 12px;
@@ -39,7 +39,7 @@
   margin: 4px;
 }
 
-.video-container__video-side {
+.video-container__side {
   grid-area: side;
 }
 

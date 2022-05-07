@@ -15,14 +15,14 @@ const Video = () => {
   return ( 
     <div className='video-container'>
 
-      <div className='video-container__video-header'>
+      <div className='video-container__header'>
         <p>
           <strong>Modulo: {activeModule.title}</strong>
           <span>/&nbsp;Aula: {activeLesson.title}</span>
         </p>
       </div>
 
-      <div className='video-container__video-area'>
+      <div className='video-container__video'>
         <YouTubePlayer
           url={activeLesson.source}
           controls
@@ -33,8 +33,8 @@ const Video = () => {
           onEnded={() => dispatch(videoEnded({ activeModule, activeLesson }))}
       />
       </div>
-      <div className='video-container__video-side'></div>
-      <div className='video-container__video-footer '>{activeLesson.description}</div>
+      <div className='video-container__side'></div>
+      <div className='video-container__footer'>{activeLesson.description}</div>
     </div>
   );
 }

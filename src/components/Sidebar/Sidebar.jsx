@@ -21,23 +21,23 @@ const Sidebar = () => {
       <aside>
         { modules.map((module, moduleIndex) => (
           <div key={module.id}>
-            <div className='title' onClick={() => { dispatch(toggleModule({ moduleIndex })) }}>
-              <p className='title-text'><strong>{ module.title }</strong></p>
+            <div className='sidebar__title' onClick={() => { dispatch(toggleModule({ moduleIndex })) }}>
+              <p className='sidebar__title-text'><strong>{ module.title }</strong></p>
               { module.isExpanded ? 
-                <ArrowDropUp  className='title-icon' /> :
-                <ArrowDropDown  className='title-icon' />
+                <ArrowDropUp  className='sidebar__title-icon' /> :
+                <ArrowDropDown  className='sidebar__title-icon' />
               }
             </div>
-            <div className={`sidebar__line ${module.isExpanded && 'fade-in'}`}>
+            <div className={`sidebar__item ${module.isExpanded && 'fade-in'}`}>
               { module.isExpanded && module.lessons.map((lesson, lessonIndex) => (
                 <button 
                   key={lesson.id} 
                   onClick={() => { dispatch(selectLesson({ module, lesson, moduleIndex, lessonIndex })) }}
-                  className={'sidebar__line-item ' + isActive(lesson.id)}
+                  className={'sidebar__item-btn ' + isActive(lesson.id)}
                 >
                   {lesson.title}
-                  {lesson.status === 'visualized' && <div className='lesson-icon visualized'><Visibility /></div>}
-                  {lesson.status === 'watched' && <div className='lesson-icon watched'><CheckCircle /></div>}
+                  {lesson.status === 'visualized' && <div className='sidebar__item-icon sidebar__item--visualized'><Visibility /></div>}
+                  {lesson.status === 'watched' && <div className='sidebar__item-icon sidebar__item--watched'><CheckCircle /></div>}
                 </button>
               ))}
             </div>
